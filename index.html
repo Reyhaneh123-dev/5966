@@ -1,0 +1,28 @@
+<!-- ذخیره با نام: page1.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>آزمایشگاه مجموعه‌ها</title>
+<style>
+body { font-family: 'Tahoma', sans-serif; background:#e3f2fd; color:#222; padding:20px; direction:rtl; }
+h1 { font-size:32px; color:#0d47a1; text-align:center; margin-bottom:20px; }
+.anim-icons { display:flex; justify-content:center; gap:20px; font-size:32px; margin-top:30px; animation: float 2s infinite; }
+@keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+</style>
+</head>
+<body>
+<h1>آزمایشگاه مجموعه‌ها</h1>
+<div class="anim-icons">
+  <span>+</span>
+  <span>-</span>
+  <span>×</span>
+  <span>÷</span>
+</div>
+<script>
+// بعد از چند ثانیه به صفحه دوم منتقل شود
+setTimeout(() => { window.location.href = 'page2.html'; }, 4000);
+</script>
+</body>
+</html>

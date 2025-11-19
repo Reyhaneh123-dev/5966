@@ -1,0 +1,49 @@
+<!-- ذخیره با نام: page3.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تعریف مجموعه A</title>
+<style>
+body { font-family: 'Tahoma', sans-serif; background:#e3f2fd; color:#222; padding:20px; }
+h2 { color:#0d47a1; }
+select, input, button { margin:10px 0; padding:8px 12px; font-size:16px; }
+.result-box { background:white; border-radius:10px; padding:15px; margin-top:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+</style>
+</head>
+<body>
+<h2>تعریف مجموعه A:</h2>
+<label>عضو کدام مجموعه شناخته شده است؟</label>
+<select id="knownSet">
+  <option value="">انتخاب کنید...</option>
+  <option value="N">N (اعداد طبیعی)</option>
+  <option value="Z">Z (اعداد صحیح)</option>
+</select>
+
+<label>شرط را به صورت کلامی بنویسید:</label><br>
+<input id="textCondition" type="text" placeholder="مثلاً بزرگتر مساوی 3">
+
+<button onclick="makeExpression()">نمایش نماد ریاضی</button>
+<div id="mathResult" class="result-box"></div>
+
+<script>
+function convertCondition(cond) {
+  return cond.replace(/بزرگتر مساوی/gi,"≥")
+             .replace(/کوچکتر مساوی/gi,"≤")
+             .replace(/بزرگتر/gi,">")
+             .replace(/کوچکتر/gi,"<")
+             .replace(/مساوی/gi,"=");
+}
+
+function makeExpression() {
+  let set = document.getElementById("knownSet").value;
+  let cond = document.getElementById("textCondition").value.trim();
+  if(!set){ alert("لطفاً یک مجموعه انتخاب کنید"); return;}
+  if(!cond){ alert("لطفاً شرط را وارد کنید"); return;}
+  let expression = `{ x ∈ ${set} | ${convertCondition(cond)} }`;
+  document.getElementById("mathResult").innerText = expression;
+}
+</script>
+</body>
+</html>

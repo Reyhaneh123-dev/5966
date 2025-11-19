@@ -1,0 +1,45 @@
+<!-- ذخیره با نام: page12.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نمونه سؤال هوشمند</title>
+<style>
+body { font-family: 'Tahoma', sans-serif; background:#e3f2fd; color:#222; padding:20px; }
+h2 { color:#0d47a1; }
+button { margin:10px 0; padding:8px 12px; font-size:16px; }
+.result-box { background:white; border-radius:10px; padding:15px; margin-top:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+</style>
+</head>
+<body>
+<h2>نمونه سؤال هوشمند</h2>
+<div id="questionBox" class="result-box"></div>
+<button onclick="nextQuestion()">سؤال بعدی</button>
+
+<script>
+let questions = [
+  {q:"مجموعه {1,2,3} ∪ {2,3,4} چیست؟", options:["{1,2,3,4}","{1,2,3}","{2,3,4}","{1,2,3,4,5}"], answer:0},
+  {q:"A={1,2}, B={2,3} A ∩ B چیست؟", options:["{2}","{1}","{3}","{1,2,3}"], answer:0},
+  {q:"A={1,2,3} B={2,3,4} A-B چیست؟", options:["{1}","{2}","{3}","{4}"], answer:0}
+];
+let idx=0;
+
+function nextQuestion() {
+  let box=document.getElementById("questionBox");
+  if(idx>=questions.length) { idx=0; }
+  let q=questions[idx];
+  let html=`<p>${q.q}</p>`;
+  q.options.forEach((opt,i)=>{
+    html+=`<button onclick="checkAnswer(${i},${q.answer})">${opt}</button>`;
+  });
+  box.innerHTML=html;
+  idx++;
+}
+
+function checkAnswer(selected,correct){
+  alert(selected===correct ? "درست!" : "نادرست!");
+}
+</script>
+</body>
+</html>

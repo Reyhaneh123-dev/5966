@@ -1,0 +1,33 @@
+<!-- ذخیره با نام: page2.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحه پروفایل</title>
+<style>
+body { font-family: 'Tahoma', sans-serif; background:#e3f2fd; color:#222; padding:20px; }
+.profile-container { text-align:center; margin-top:50px; }
+.profile-img { width:100px; height:100px; border-radius:50%; background:#ccc; display:inline-block; cursor:pointer; }
+input, button { margin:10px; padding:8px; font-size:16px; }
+</style>
+</head>
+<body>
+<h1>پروفایل شما</h1>
+<div class="profile-container">
+  <div class="profile-img" onclick="editProfile()">👤</div>
+  <div id="profileData" style="margin-top:20px;"></div>
+</div>
+<script>
+function editProfile() {
+  let name = prompt("نام خود را وارد کنید:");
+  let family = prompt("نام خانوادگی خود را وارد کنید:");
+  document.getElementById("profileData").innerHTML = `
+    <p>نام: ${name || ''}</p>
+    <p>نام خانوادگی: ${family || ''}</p>
+    <p>امتیازها: 0</p>
+  `;
+}
+</script>
+</body>
+</html>

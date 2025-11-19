@@ -1,0 +1,29 @@
+<!-- ذخیره با نام: page9.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>زیرمجموعه بودن A ⊆ B</title>
+<style>
+body { font-family: 'Tahoma', sans-serif; background:#e3f2fd; color:#222; padding:20px; }
+h2 { color:#0d47a1; }
+.result-box { background:white; border-radius:10px; padding:15px; margin-top:10px; }
+button { padding:8px 12px; margin-top:10px; font-size:16px; }
+</style>
+</head>
+<body>
+<h2>بررسی زیرمجموعه بودن A ⊆ B</h2>
+<button onclick="checkSubset()">بررسی</button>
+<div id="subsetResult" class="result-box"></div>
+
+<script>
+function checkSubset() {
+  let A = [1,2,3,4];
+  let B = [1,2,3,4,5,6];
+  let isSubset = A.every(x => B.includes(x));
+  document.getElementById("subsetResult").innerText = isSubset ? "A زیرمجموعه B است" : "A زیرمجموعه B نیست";
+}
+</script>
+</body>
+</html>
